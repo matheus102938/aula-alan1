@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video{
     margin: 0;
     padding: 0;
     border: 0;
@@ -23,48 +23,262 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+
+
+/* Faz elementos HTML5 funcionarem como blocos */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
     display: block;
 }
+
+
+/* =====================================================
+   2. CONFIGURAÇÃO GERAL
+===================================================== */
+
 body {
-line-height: 1;
+    line-height: 1;
 }
-ol, ul {
+
+
+/* Remove marcadores de listas */
+
+ol,
+ul {
     list-style: none;
 }
-blockquote, q {
+
+
+/* Remove aspas automáticas */
+
+blockquote,
+q {
     quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: "";
 }
+
+
+/* Configuração de tabelas */
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+
+/* =====================================================
+   3. TOPO / BARRA DA VITRINE
+===================================================== */
+
 #topo {
-    background: #555666;
+    position: relative;
+
+    /* Largura da barra */
+    width: calc(100% - 74px);
+
+    /* Altura da barra */
+    height: 36px;
+
+    /* Posicionamento */
+    margin-left: 37px;
+    margin-top: 126px;
+
+    /* Gradiente da esquerda para direita */
+    background: linear-gradient(
+        90deg,
+        #ff2600 0%,
+        #e00035 45%,
+        #b90075 75%,
+        #a800a8 100%
+    );
+
+    /* Centraliza o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#topo > h1{
-    font-size: 26px;
+
+/* =====================================================
+   4. TÍTULO DA VITRINE + LOGO
+===================================================== */
+
+#topo > h1 {
+    display: flex;
+
+    /* Coloca logo e texto lado a lado */
+    align-items: center;
+
+    /* Centraliza */
+    justify-content: center;
+
+    /* Espaço entre logo e texto */
+    gap: 7px;
+
+    /* Texto */
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
     color: #ffffff;
 }
-#lista {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
+
+/* Tamanho da LOGO */
+
+#topo > h1 img {
+    width: 24px;
+    height: 24px;
+
+    /* Mantém a proporção da imagem */
+    object-fit: contain;
 }
 
+
+/* =====================================================
+   5. BOTÃO CONTATO
+===================================================== */
+
+#topo::after {
+    content: "Contato";
+
+    position: absolute;
+
+    /* Distância do lado direito */
+    right: 24px;
+
+    /* Distância do topo */
+    top: 6px;
+
+    /* Tamanho */
+    width: 91px;
+    height: 23px;
+
+    /* Aparência */
+    background: #35c5e5;
+    border-radius: 5px;
+
+    /* Centraliza o texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Texto */
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   6. ÁREA DOS CARDS
+===================================================== */
+
+#lista {
+    /* Largura da área */
+    width: calc(100% - 176px);
+
+    /* Posicionamento */
+    margin-left: 88px;
+    margin-top: 56px;
+
+    /* Ativa o Grid */
+    display: grid;
+
+    /* 5 cards por linha */
+    grid-template-columns: repeat(5, 1fr);
+
+    /* Espaço horizontal entre cards */
+    column-gap: 36px;
+
+    /* Espaço vertical entre cards */
+    row-gap: 38px;
+}
+
+
+/* =====================================================
+   7. CARDS
+===================================================== */
+
 .card {
-    min-width: 300px;
-    min-height: 400px;
-    background: #666666;
-    margin: 20px;
+    /* Ocupa o espaço da coluna */
+    width: 100%;
+
+    /* Altura */
+    height: 235px;
+
+    /* Fundo cinza */
+    background: #aaaaaa;
+
+    /* Cantos arredondados */
+    border-radius: 11px;
+
+    /* Remove margem antiga */
+    margin: 0;
+}
+
+
+/* =====================================================
+   8. RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    /* Barra menor nas telas pequenas */
+
+    #topo {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+    }
+
+
+    /* Cards ocupam mais espaço */
+
+    #lista {
+        width: calc(100% - 80px);
+        margin-left: 40px;
+
+        column-gap: 15px;
+        row-gap: 25px;
+    }
+
+
+    /* Cards menores */
+
+    .card {
+        height: 180px;
+    }
+
+
+    /* Título menor */
+
+    #topo > h1 {
+        font-size: 17px;
+    }
+
+
+    /* Botão menor */
+
+    #topo::after {
+        right: 10px;
+        width: 70px;
+        font-size: 9px;
+    }
 }
