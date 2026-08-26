@@ -1,377 +1,156 @@
-/* 
-   http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-
-/* =====================================================
-   1. RESET CSS
-===================================================== */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-
+* {
     margin: 0;
     padding: 0;
-    border: 0;
-
-    font-size: 100%;
-    font: inherit;
-
-    vertical-align: baseline;
-}
-
-
-/* =====================================================
-   2. ELEMENTOS HTML5
-===================================================== */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-
-    display: block;
-}
-
-
-/* =====================================================
-   3. CONFIGURAÇÃO GERAL
-===================================================== */
-
-html,
-body {
-
-    width: 100%;
-    min-height: 100%;
-
-    margin: 0;
-    padding: 0;
-}
-
-body {
-
-    line-height: 1;
-}
-
-
-/* =====================================================
-   4. LISTAS
-===================================================== */
-
-ol,
-ul {
-
-    list-style: none;
-}
-
-
-/* =====================================================
-   5. CITAÇÕES
-===================================================== */
-
-blockquote,
-q {
-
-    quotes: none;
-}
-
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-
-    content: "";
-}
-
-
-/* =====================================================
-   6. TABELAS
-===================================================== */
-
-table {
-
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-
-/* =====================================================
-   7. TOPO / BARRA DA VITRINE
-===================================================== */
-
-#topo {
-
-    position: relative;
-
-    /* Ocupa toda a largura da tela */
-    width: 100%;
-
-    /* Altura da barra */
-    height: 36px;
-
-    /* Remove qualquer espaço */
-    margin: 0;
-    padding: 0;
-
-    /* Gradiente da esquerda para direita */
-    background: linear-gradient(
-        90deg,
-        #ff2600 0%,
-        #e00035 45%,
-        #b90075 75%,
-        #a800a8 100%
-    );
-
-    /* Centraliza o conteúdo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Garante que o tamanho não ultrapasse a tela */
     box-sizing: border-box;
 }
 
-
-/* =====================================================
-   8. TÍTULO DA VITRINE + LOGO
-===================================================== */
-
-#topo > h1 {
-
-    display: flex;
-
-    /* Logo e texto lado a lado */
-    align-items: center;
-
-    /* Centraliza */
-    justify-content: center;
-
-    /* Espaço entre logo e texto */
-    gap: 7px;
-
-    /* Texto */
-    font-size: 22px;
-
+body {
+    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-
-    font-weight: bold;
-
-    color: #ffffff;
 }
 
 
-/* =====================================================
-   9. TAMANHO DA LOGO
-===================================================== */
+/* TOPO */
 
-#topo > h1 img {
+#topo {
+    width: 100%;
+    height: 36px;
 
+    background: linear-gradient(
+        90deg,
+        #ff2600,
+        #e00035,
+        #b90075,
+        #a800a8
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* TÍTULO E LOGO */
+
+#topo h1 {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    color: white;
+}
+
+
+/* LOGO */
+
+#topo h1 img {
     width: 24px;
     height: 24px;
 
-    /* Mantém a proporção */
     object-fit: contain;
 }
 
 
-/* =====================================================
-   10. BOTÃO CONTATO
-===================================================== */
+/* CONTATO */
 
 #topo::after {
-
     content: "Contato";
 
     position: absolute;
 
-    /* Distância do lado direito */
     right: 24px;
-
-    /* Distância do topo */
     top: 6px;
 
-    /* Tamanho */
     width: 91px;
     height: 23px;
 
-    /* Aparência */
     background: #35c5e5;
-
     border-radius: 5px;
 
-    /* Centraliza o texto */
     display: flex;
     align-items: center;
     justify-content: center;
 
-    /* Texto */
-    color: #ffffff;
-
-    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 
     font-size: 11px;
-
     font-weight: bold;
 }
 
 
-/* =====================================================
-   11. ÁREA DOS CARDS
-===================================================== */
+/* LISTA DE CARDS */
 
 #lista {
-
-    /* Largura da área */
     width: calc(100% - 176px);
 
-    /* Posicionamento */
     margin-left: 88px;
     margin-top: 56px;
 
-    /* Ativa o Grid */
     display: grid;
 
-    /* 5 cards por linha */
     grid-template-columns: repeat(5, 1fr);
 
-    /* Espaço horizontal */
     column-gap: 36px;
-
-    /* Espaço vertical */
     row-gap: 38px;
-
-    /* Evita problemas de largura */
-    box-sizing: border-box;
 }
 
 
-/* =====================================================
-   12. CARDS
-===================================================== */
+/* CARD */
 
 .card {
-
-    /* Ocupa o espaço da coluna */
     width: 100%;
-
-    /* Altura */
     height: 235px;
 
-    /* Fundo cinza */
     background: #aaaaaa;
 
-    /* Cantos arredondados */
     border-radius: 11px;
-
-    /* Remove margem */
-    margin: 0;
-
-    /* Garante que padding/borda não aumentem o tamanho */
-    box-sizing: border-box;
 }
 
 
-/* =====================================================
-   13. RESPONSIVIDADE
-===================================================== */
+/* RESPONSIVIDADE */
 
 @media (max-width: 900px) {
 
-    /* -------------------------------------------------
-       BARRA
-    ------------------------------------------------- */
-
     #topo {
-
         width: 100%;
-
-        height: 36px;
-
-        margin: 0;
     }
 
-
-    /* -------------------------------------------------
-       TÍTULO
-    ------------------------------------------------- */
-
-    #topo > h1 {
-
+    #topo h1 {
         font-size: 17px;
     }
 
-
-    /* -------------------------------------------------
-       BOTÃO CONTATO
-    ------------------------------------------------- */
-
     #topo::after {
-
         right: 10px;
-
         width: 70px;
-
-        height: 23px;
-
         font-size: 9px;
     }
 
-
-    /* -------------------------------------------------
-       CARDS
-    ------------------------------------------------- */
-
     #lista {
-
         width: calc(100% - 80px);
 
         margin-left: 40px;
 
         column-gap: 15px;
-
         row-gap: 25px;
     }
 
-
-    /* -------------------------------------------------
-       ALTURA DOS CARDS
-    ------------------------------------------------- */
-
     .card {
-
         height: 180px;
     }
 }
 
 
-/* =====================================================
-   14. TELAS MUITO PEQUENAS
-===================================================== */
+/* CELULAR */
 
 @media (max-width: 600px) {
 
     #lista {
-
         width: calc(100% - 40px);
 
         margin-left: 20px;
@@ -379,37 +158,26 @@ table {
         grid-template-columns: repeat(2, 1fr);
 
         column-gap: 15px;
-
         row-gap: 20px;
     }
 
-
     .card {
-
         height: 160px;
     }
 
-
-    #topo > h1 {
-
+    #topo h1 {
         font-size: 15px;
     }
 
-
-    #topo > h1 img {
-
+    #topo h1 img {
         width: 20px;
-
         height: 20px;
     }
 
-
     #topo::after {
-
         right: 8px;
 
         width: 60px;
-
         height: 21px;
 
         font-size: 8px;
