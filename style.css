@@ -1,7 +1,13 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* 
+   http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
+
+
+/* =====================================================
+   1. RESET CSS
+===================================================== */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -12,20 +18,25 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video{
+time, mark, audio, video {
+
     margin: 0;
     padding: 0;
     border: 0;
+
     font-size: 100%;
     font: inherit;
+
     vertical-align: baseline;
 }
 
 
-/* Faz elementos HTML5 funcionarem como blocos */
+/* =====================================================
+   2. ELEMENTOS HTML5
+===================================================== */
 
 article,
 aside,
@@ -38,31 +49,49 @@ hgroup,
 menu,
 nav,
 section {
+
     display: block;
 }
 
 
 /* =====================================================
-   2. CONFIGURAÇÃO GERAL
+   3. CONFIGURAÇÃO GERAL
 ===================================================== */
 
+html,
 body {
+
+    width: 100%;
+    min-height: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
     line-height: 1;
 }
 
 
-/* Remove marcadores de listas */
+/* =====================================================
+   4. LISTAS
+===================================================== */
 
 ol,
 ul {
+
     list-style: none;
 }
 
 
-/* Remove aspas automáticas */
+/* =====================================================
+   5. CITAÇÕES
+===================================================== */
 
 blockquote,
 q {
+
     quotes: none;
 }
 
@@ -70,34 +99,39 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
+
     content: "";
 }
 
 
-/* Configuração de tabelas */
+/* =====================================================
+   6. TABELAS
+===================================================== */
 
 table {
+
     border-collapse: collapse;
     border-spacing: 0;
 }
 
 
 /* =====================================================
-   3. TOPO / BARRA DA VITRINE
+   7. TOPO / BARRA DA VITRINE
 ===================================================== */
 
 #topo {
+
     position: relative;
 
-    /* Largura da barra */
-    width: calc(100% - 74px);
+    /* Ocupa toda a largura da tela */
+    width: 100%;
 
     /* Altura da barra */
     height: 36px;
 
-    /* Posicionamento */
-    margin-left: 37px;
-    margin-top: 126px;
+    /* Remove qualquer espaço */
+    margin: 0;
+    padding: 0;
 
     /* Gradiente da esquerda para direita */
     background: linear-gradient(
@@ -112,17 +146,21 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    /* Garante que o tamanho não ultrapasse a tela */
+    box-sizing: border-box;
 }
 
 
 /* =====================================================
-   4. TÍTULO DA VITRINE + LOGO
+   8. TÍTULO DA VITRINE + LOGO
 ===================================================== */
 
 #topo > h1 {
+
     display: flex;
 
-    /* Coloca logo e texto lado a lado */
+    /* Logo e texto lado a lado */
     align-items: center;
 
     /* Centraliza */
@@ -133,29 +171,35 @@ table {
 
     /* Texto */
     font-size: 22px;
+
     font-family: Arial, Helvetica, sans-serif;
+
     font-weight: bold;
 
     color: #ffffff;
 }
 
 
-/* Tamanho da LOGO */
+/* =====================================================
+   9. TAMANHO DA LOGO
+===================================================== */
 
 #topo > h1 img {
+
     width: 24px;
     height: 24px;
 
-    /* Mantém a proporção da imagem */
+    /* Mantém a proporção */
     object-fit: contain;
 }
 
 
 /* =====================================================
-   5. BOTÃO CONTATO
+   10. BOTÃO CONTATO
 ===================================================== */
 
 #topo::after {
+
     content: "Contato";
 
     position: absolute;
@@ -172,6 +216,7 @@ table {
 
     /* Aparência */
     background: #35c5e5;
+
     border-radius: 5px;
 
     /* Centraliza o texto */
@@ -181,17 +226,21 @@ table {
 
     /* Texto */
     color: #ffffff;
+
     font-family: Arial, Helvetica, sans-serif;
+
     font-size: 11px;
+
     font-weight: bold;
 }
 
 
 /* =====================================================
-   6. ÁREA DOS CARDS
+   11. ÁREA DOS CARDS
 ===================================================== */
 
 #lista {
+
     /* Largura da área */
     width: calc(100% - 176px);
 
@@ -205,19 +254,23 @@ table {
     /* 5 cards por linha */
     grid-template-columns: repeat(5, 1fr);
 
-    /* Espaço horizontal entre cards */
+    /* Espaço horizontal */
     column-gap: 36px;
 
-    /* Espaço vertical entre cards */
+    /* Espaço vertical */
     row-gap: 38px;
+
+    /* Evita problemas de largura */
+    box-sizing: border-box;
 }
 
 
 /* =====================================================
-   7. CARDS
+   12. CARDS
 ===================================================== */
 
 .card {
+
     /* Ocupa o espaço da coluna */
     width: 100%;
 
@@ -230,55 +283,135 @@ table {
     /* Cantos arredondados */
     border-radius: 11px;
 
-    /* Remove margem antiga */
+    /* Remove margem */
     margin: 0;
+
+    /* Garante que padding/borda não aumentem o tamanho */
+    box-sizing: border-box;
 }
 
 
 /* =====================================================
-   8. RESPONSIVIDADE
+   13. RESPONSIVIDADE
 ===================================================== */
 
 @media (max-width: 900px) {
 
-    /* Barra menor nas telas pequenas */
+    /* -------------------------------------------------
+       BARRA
+    ------------------------------------------------- */
 
     #topo {
-        width: calc(100% - 40px);
-        margin-left: 20px;
+
+        width: 100%;
+
+        height: 36px;
+
+        margin: 0;
     }
 
 
-    /* Cards ocupam mais espaço */
-
-    #lista {
-        width: calc(100% - 80px);
-        margin-left: 40px;
-
-        column-gap: 15px;
-        row-gap: 25px;
-    }
-
-
-    /* Cards menores */
-
-    .card {
-        height: 180px;
-    }
-
-
-    /* Título menor */
+    /* -------------------------------------------------
+       TÍTULO
+    ------------------------------------------------- */
 
     #topo > h1 {
+
         font-size: 17px;
     }
 
 
-    /* Botão menor */
+    /* -------------------------------------------------
+       BOTÃO CONTATO
+    ------------------------------------------------- */
 
     #topo::after {
+
         right: 10px;
+
         width: 70px;
+
+        height: 23px;
+
         font-size: 9px;
+    }
+
+
+    /* -------------------------------------------------
+       CARDS
+    ------------------------------------------------- */
+
+    #lista {
+
+        width: calc(100% - 80px);
+
+        margin-left: 40px;
+
+        column-gap: 15px;
+
+        row-gap: 25px;
+    }
+
+
+    /* -------------------------------------------------
+       ALTURA DOS CARDS
+    ------------------------------------------------- */
+
+    .card {
+
+        height: 180px;
+    }
+}
+
+
+/* =====================================================
+   14. TELAS MUITO PEQUENAS
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #lista {
+
+        width: calc(100% - 40px);
+
+        margin-left: 20px;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        column-gap: 15px;
+
+        row-gap: 20px;
+    }
+
+
+    .card {
+
+        height: 160px;
+    }
+
+
+    #topo > h1 {
+
+        font-size: 15px;
+    }
+
+
+    #topo > h1 img {
+
+        width: 20px;
+
+        height: 20px;
+    }
+
+
+    #topo::after {
+
+        right: 8px;
+
+        width: 60px;
+
+        height: 21px;
+
+        font-size: 8px;
     }
 }
